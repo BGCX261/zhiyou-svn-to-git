@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+<bean id="profileDao" class="com.zy.domain.profile.dao.ProfileDaoImpl" parent="baseDao" />
+<bean id="educationDao" class="com.zy.domain.profile.dao.EducationDAOImpl" parent="baseDao" />
+<bean id="schoolDao" class="com.zy.domain.option.dao.SchoolDaoImpl" parent="baseDao" />
+
+<bean id="friendDao" class="com.zy.domain.sns.dao.FriendDaoImpl" parent="baseDao" />
+<bean id="snsGroupDao" class="com.zy.domain.sns.dao.SNSGroupDaoImpl" parent="baseDao" />
+<bean id="zyFollowDao" class="com.zy.domain.sns.dao.FollowDaoImpl" parent="baseDao" />
+<bean id="zyIntroduceDao" class="com.zy.domain.sns.dao.SNSIntroduceDaoImpl" parent="baseDao" />
+<bean id="inviteByAddressDao" class="com.zy.domain.sns.dao.InviteByAddressDaoImpl" parent="baseDao" />
+
+<bean id="requestDao" class="com.zy.domain.message.dao.RequestDaoImpl" parent="baseDao" />
+<bean id="requestTypeDao" class="com.zy.domain.message.dao.RequestTypeDaoImpl" parent="baseDao" />
+<bean id="notificationTypeDao" class="com.zy.domain.message.dao.NotificationTypeDaoImpl" parent="baseDao" />
+<bean id="notificationDao" class="com.zy.domain.message.dao.NotificationDaoImpl" parent="baseDao" />
+
+<bean id="eventFollowDao" class="com.zy.domain.event.dao.EventFollowDaoImpl" parent="baseDao" />
+<bean id="eventDao" class="com.zy.domain.event.dao.EventDaoImpl" parent="baseDao" />
+<bean id="eventInviteDao" class="com.zy.domain.event.dao.EventInviteDaoImpl" parent="baseDao" />
+<bean id="eventMemberDao" class="com.zy.domain.event.dao.EventMemberDaoImpl" parent="baseDao" />
+<bean id="feedDao" class="com.zy.domain.feed.dao.FeedDaoImpl" parent="baseDao" />
+<bean id="feedTypeDao" class="com.zy.domain.feed.dao.FeedTypeDaoImpl" parent="baseDao" />
+<bean id="feedCommentDao" class="com.zy.domain.feed.dao.FeedCommentDaoImpl" parent="baseDao" />
+<bean id="messageDao" class="com.zy.domain.message.dao.MessageDaoImpl" parent="baseDao" />
+
+<bean id="indexDao" class="com.zy.domain.search.dao.IndexDaoImpl" parent="baseDao" />
+<bean id="indexLogDao" class="com.zy.domain.search.dao.IndexLogDaoImpl" parent="baseDao" />
+
+<bean id="cityDao" class="com.zy.domain.option.dao.CityDaoImpl" parent="baseDao" />
+
+<bean id="photoDao" class="com.zy.domain.photo.dao.PhotoDaoImpl" parent="baseDao" />
+<bean id="albumDao" class="com.zy.domain.photo.dao.AlbumDaoImpl" parent="baseDao" />
+<bean id="eventCategoryDao" class="com.zy.domain.event.dao.EventCategoryDaoImpl" parent="baseDao" />
+<bean id="districtDao" class="com.zy.domain.option.dao.DistrictDaoImpl" parent="baseDao" />
+<bean id="recommPlaceDao" class="com.zy.domain.event.dao.RecommPlaceDaoImpl" parent="baseDao" />
+
+<bean id="mailqueueDao" class="com.zy.domain.message.dao.MailqueueDaoImpl" parent="baseDao" />
+<bean id="answerOptionDao" class="com.zy.domain.question.dao.AnswerOptionDaoImpl" parent="baseDao" />
+<bean id="questionDao" class="com.zy.domain.question.dao.QuestionDaoImpl" parent="baseDao" />
+<bean id="answerDao" class="com.zy.domain.question.dao.AnswerDaoImpl" parent="baseDao" />
+
+<bean id="recommendUserDao" class="com.zy.domain.sns.dao.RecommendUserDaoImpl" parent="baseDao" />
+<bean id="interestDao" class="com.zy.domain.option.dao.InterestDaoImpl" parent="baseDao" />
+<bean id="blockedFeedsDao" class="com.zy.domain.feed.dao.BlockedFeedsDaoImpl" parent="baseDao" />
+<bean id="atFeedDao" class="com.zy.domain.feed.dao.AtFeedDaoImpl" parent="baseDao" />
+</beans>

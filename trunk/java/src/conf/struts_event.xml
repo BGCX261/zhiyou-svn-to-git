@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="zy-event" namespace="/event" extends="zy-global">
+	<action name="event" class="com.zy.action.event.EventAction">
+	<interceptor-ref name="loginDefaultStack"/>
+		<result name="member.events" type="tiles">tiles.event.list</result>
+		<result name="member.emtyevents" type="tiles">tiles.event.emptylist</result>
+		<result name="view.event.detail" type="tiles">tiles.event.detail</result>
+		<result name="view.event.photos" type="tiles">tiles.event.photos</result>
+		<result name="my.events" type="redirect">/event/event!getMyEvents.jhtml</result>
+		<result name="my.followevents" type="redirect">/event/event!getMyFollowEvents.jhtml</result>
+		<result name="recommend.places" type="tiles">tiles.event.places</result>
+		<result name="event.members" type="tiles">tiles.event.members</result>
+		<result name="member.friends">/WEB-INF/jsp/popup/eventFriends.jsp</result>
+		<result name="to.createplace" type="tiles">tiles.event.tocreateplace</result>
+		<result name="to.placedetail" type="tiles">tiles.event.toplacedetail</result>
+		<result name="to.placelist" type="redirect">/event/event!getRecommPlaces.jhtml</result>
+	</action>
+	<action name="createOrUpdate" class="com.zy.action.event.EventAction">
+	<interceptor-ref name="loginDefaultStack"/>
+		<result name="member.cteateOrUpdateEvent" type="tiles">tiles.event.createOrUpdate</result>
+	</action>
+</package>
+</struts>

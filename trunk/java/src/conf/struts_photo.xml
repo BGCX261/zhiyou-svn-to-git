@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="zy-photo" namespace="/photo" extends="zy-global">
+	<action name="photo" class="com.zy.action.photo.PhotoAction">
+	<interceptor-ref name="loginDefaultStack"/>
+		<result name="member.albumlist" type="tiles">tiles.member.albumlist</result>
+		<result name="member.photolist" type="tiles">tiles.member.photolist</result>
+		<result name="member.uploadphoto" type="tiles">tiles.member.uploadphoto</result>
+		<result name="member.createalbum" type="tiles">tiles.member.createalbum</result>
+		<result name="to.member.albumlist" type="redirect">/photo/photo!getAlbum.jhtml?userid=${userid}</result>
+		<result name="to.member.photolist" type="redirect">/photo/photo!getPhotos.jhtml?userid=${userid}&amp;albumId=${albumId}</result>
+		<result name="member.editalbum" type="tiles">tiles.member.editalbum</result>
+		<result name="member.editphotos" type="tiles">tiles.member.editphotos</result>
+		<result name="to.member.feeds" type="redirect">/usr/feed.jhtml</result>
+		<result name="to.photo.upload" type="redirect">/photo/photo!toUpladPhoto.jhtml</result>
+		<result name="member.sharephoto.pop">/WEB-INF/jsp/popup/noticePop.jsp</result>
+	</action>
+</package>
+</struts>

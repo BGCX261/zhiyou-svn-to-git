@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<constant name="struts.custom.i18n.resources" value="message"></constant>
+<include file="conf/struts_user.xml"/>
+<include file="conf/struts_sns.xml"/>
+<include file="conf/struts_event.xml"/>
+<include file="conf/struts_secondary.xml"/>
+<include file="conf/struts_photo.xml"/>
+<package name="zy-global" extends="tiles-default,json-default">
+	<interceptors>
+			<interceptor name="authority" class="com.zy.action.interceptor.AuthorityInterceptor" />
+			<interceptor-stack name="loginDefaultStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authority"/>
+			</interceptor-stack>
+	</interceptors>
+	<global-results>
+		<result name="to.landing" >/WEB-INF/jsp/public/landing.jsp</result>
+	</global-results>
+</package>
+</struts>

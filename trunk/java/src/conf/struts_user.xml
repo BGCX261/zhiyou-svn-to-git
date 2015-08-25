@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+
+<package name="zy-default" namespace="/usr" extends="zy-global">
+	<action name="landing" class="com.zy.action.profile.LandingAction">
+		<result name="public.welcome" >/WEB-INF/jsp/public/landing.jsp</result>
+		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
+	</action>
+	
+	<action name="logout" class="com.zy.action.profile.LogoutAction">
+		<result name="public.welcome" >/WEB-INF/jsp/public/landing.jsp</result>
+	</action>
+	
+	<action name="validate" class="com.zy.action.profile.ValidateAction">
+		<result name="input" >/WEB-INF/jsp/public/landing.jsp</result>
+		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
+	</action>
+	
+	<action name="register" class="com.zy.action.profile.RegistrationAction">
+		<result name="input" >/WEB-INF/jsp/public/landing.jsp</result>
+		<result name="member.welcome" type="tiles" >tiles.login.welcome</result>
+		<result name="member.basic" type="redirect" >/usr/update!basic.jhtml</result>
+	</action>
+	
+	<action name="update" class="com.zy.action.profile.UpdateProfileAction">
+	<interceptor-ref name="loginDefaultStack"/>
+		<result name="member.basic" type="tiles" >tiles.member.basic</result>
+		<result name="member.picture" type="tiles" >tiles.member.picture</result>
+		<result name="member.career" type="tiles" >tiles.member.career</result>
+		<result name="member.contact" type="tiles" >tiles.member.contact</result>
+		<result name="member.interest" type="tiles" >tiles.member.interest</result>
+		<result name="member.update" type="redirect" >/usr/update!basic.jhtml?profileform.pageIndex=${profileform.pageIndex}</result>
+		<result name="member.info" type="redirect" >/profile/profile!viewProfileInfo.jhtml?userid=${userid}</result>
+		<result name="member.home" type="redirect" >/usr/feed.jhtml</result>
+	</action>
+	
+	<action name="login" class="com.zy.action.profile.LoginAction">
+		<result name="login.welcome"  type="redirect">/usr/feed.jhtml</result>
+		<result name="login.fail" >/WEB-INF/jsp/public/login.jsp</result>
+	</action>
+	
+	<action name="forgetPass" class="com.zy.action.profile.ForgetPassAction">
+		<result name="forgetpass" >/WEB-INF/jsp/public/forgetpass.jsp</result>
+	</action>
+	
+	<action name="account" class="com.zy.action.profile.AccountAction">
+		<result name="member.account" type="tiles">tiles.member.account</result>
+	</action>
+	
+	<action name="header" class="com.zy.action.profile.MemberAction">
+		<result name="member.header">/WEB-INF/jsp/common/head.jsp</result>
+	</action>
+	
+	<action name="message" class="com.zy.action.message.MessageAction">
+	<interceptor-ref name="loginDefaultStack"/>
+		<result name="member.messages" type="tiles">tiles.member.messages</result>
+		<result name="to.member.inboxmessages" type="redirect">/usr/message.jhtml</result>
+		<result name="member.messagedetail" type="tiles">tiles.member.messagedetail</result>
+		<result name="member.message.sent">/WEB-INF/jsp/member/message/addMessageAjax.jsp</result>
+	</action>
+	
+	<action name="request" class="com.zy.action.message.RequestAction">
+	<interceptor-ref name="loginDefaultStack"/>
+		<result name="member.requests" type="tiles">tiles.member.requests</result>
+		<result name="member.outrequests" type="tiles">tiles.member.outrequests</result>
+		<result name="to.member.requests" type="redirect">/usr/request.jhtml</result>
+	</action>
+	
+	<action name="notify" class="com.zy.action.message.NotificationAction">
+	<interceptor-ref name="loginDefaultStack"/>
+		<result name="member.notifications" type="tiles">tiles.member.notifications</result>
+		<result name="to.member.notifications" type="redirect">/usr/notify.jhtml</result>
+	</action>
+	
+	<action name="feed" class="com.zy.action.feed.FeedAction">
+		<interceptor-ref name="loginDefaultStack"/>
+		<result name="to.member.feeds" type="redirect">/usr/feed.jhtml</result>
+		<result name="member.feeds" type="tiles">tiles.feed.list</result>
+		<result name="snsgroup.feeds" type="tiles">tiles.snsgroupfeed.list</result>
+		<result name="member.addfeed.ajax">/WEB-INF/jsp/member/feed/addfeedajax.jsp</result>
+		<result name="member.addfeedcomment.ajax">/WEB-INF/jsp/member/feed/addfeedcommentajax.jsp</result>
+		<result name="question.addfeedcomment.ajax">/WEB-INF/jsp/member/feed/addquestioncommentajax.jsp</result>
+		<result name="ask.friends.ajax">/WEB-INF/jsp/popup/askFriendsPop.jsp</result>
+		<result name="member.addOption.ajax">/WEB-INF/jsp/member/feed/addQuestionOptionAjax.jsp</result>
+		<result name="member.getOptionUsers.pop">/WEB-INF/jsp/popup/showOptionUsersPop.jsp</result>
+		<result name="member.sharefeeds.pop">/WEB-INF/jsp/popup/noticePop.jsp</result>
+		<result name="member.event.photos">/WEB-INF/jsp/member/event/eventPhotos.jsp</result>
+		<result name="member.feed.bigPhoto">/WEB-INF/jsp/member/feed/bigPhotoFeed.jsp</result>
+		<result name="eventaction.detail" type="redirect">/event/event!viewEvent.jhtml?eventId=${eventId}</result>
+		<result name="snsgroup.friends">/WEB-INF/jsp/popup/groupFriendsPop.jsp</result>
+		<result name="event.detail" type="redirect">/event/event!viewEvent.jhtml?eventId=${eventId}</result>
+	</action>
+	
+	<action name="upload" class="com.zy.action.profile.UploadAction">
+		<interceptor-ref name="loginDefaultStack"/>
+		<result name="member.landing" type="redirect">/usr/landing.jhtml</result>
+	</action>
+	
+	<action name="location" class="com.zy.action.location.LocationAction">
+	<interceptor-ref name="loginDefaultStack"/>
+		<result name="location.city">/WEB-INF/jsp/public/locationAjax.jsp</result>
+	</action>
+		
+	<action name="school" class="com.zy.action.location.SchoolAction">
+		<interceptor-ref name="loginDefaultStack"/>
+		<result name="location.school">/WEB-INF/jsp/public/schoolAjax.jsp</result>
+	</action>
+	
+	<action name="interest" class="com.zy.action.profile.InterestAction">
+		<result name="interest.nextpage">/WEB-INF/jsp/public/interestAjax.jsp</result>
+	</action>
+	
+</package>
+</struts>

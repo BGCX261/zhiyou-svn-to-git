@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean name="educationFacade" class="com.zy.facade.impl.EducationFacadeImpl"  >
+		<property name="educationService" ref="educationService"/>
+		<property name="schoolService" ref="schoolService"/>
+	</bean>
+	
+	<bean name="locationFacade" class="com.zy.facade.impl.LocationFacadeImpl"  >
+		<property name="cityService" ref="cityService"/>
+		<property name="schoolService" ref="schoolService"/>
+	</bean>
+	
+	<bean name="profileFacade" class="com.zy.facade.impl.ProfileFacadeImpl"  >
+		<property name="profileService" ref="profileService"/>
+		<property name="mailqueueService" ref="mailqueueService"/>
+		<property name="luceneIndexService" ref="luceneIndexService"/>
+	</bean>
+	
+	<bean name="snsFacade" class="com.zy.facade.impl.SNSFacadeImpl"  >
+		<property name="profileService" ref="profileService"/>
+		<property name="snsService" ref="snsService"/>
+		<property name="mailqueueService" ref="mailqueueService"/>
+		<property name="requestService" ref="requestService"/>
+	</bean>
+	
+	<bean name="requestFacade" class="com.zy.facade.impl.RequestFacadeImpl"  >
+		<property name="requestService" ref="requestService"/>
+		<property name="snsFacade" ref="snsFacade"/>
+		<property name="feedFacade" ref="feedFacade"/>
+		<property name="eventService" ref="eventService"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="mailqueueService" ref="mailqueueService"/>
+		<property name="questionService" ref="questionService"/>
+		<property name="notificationService" ref="notificationService"/>
+	</bean>
+	
+	<bean name="notifyFacade" class="com.zy.facade.impl.NotifyFacadeImpl"  >
+		<property name="notificationService" ref="notificationService"/>
+		<property name="eventService" ref="eventService"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="questionService" ref="questionService"/>
+	</bean>
+	
+	<bean name="feedFacade" class="com.zy.facade.impl.FeedFacadeImpl"  >
+		<property name="profileService" ref="profileService"/>
+		<property name="feedService" ref="feedService"/>
+		<property name="eventService" ref="eventService"/>
+		<property name="photoService" ref="photoService"/>
+		<property name="questionService" ref="questionService"/>
+		<property name="requestService" ref="requestService"/>
+	</bean>
+	
+	<bean name="messageFacade" class="com.zy.facade.impl.MessageFacadeImpl"  >
+		<property name="messageService" ref="messageService"/>
+		<property name="profileService" ref="profileService"/>
+	</bean>
+	
+	<bean name="eventFacade" class="com.zy.facade.impl.EventFacadeImpl"  >
+		<property name="eventService" ref="eventService"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="snsService" ref="snsService"/>
+		<property name="requestService" ref="requestService"/>
+		<property name="photoService" ref="photoService"/>
+		<property name="feedFacade" ref="feedFacade"/>
+	</bean>
+	
+	<bean name="luceneIndexFacade" class="com.zy.facade.impl.LuceneIndexFacadeImpl"  >
+		<property name="luceneIndexService" ref="luceneIndexService"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="educationService" ref="educationService"/>
+		<property name="schoolService" ref="schoolService"/>
+		<property name="snsService" ref="snsService"/>
+		<property name="optionFacade" ref="optionFacade"/>
+	</bean>
+	
+	<bean name="searchFacade" class="com.zy.facade.impl.SearchFacadeImpl"  >
+		<property name="snsService" ref="snsService"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="searchService" ref="searchService"/>
+		<property name="requestService" ref="requestService"/>
+	</bean>
+	
+	<bean name="photoFacade" class="com.zy.facade.impl.PhotoFacadeImpl"  >
+		<property name="photoService" ref="photoService"/>
+	</bean>
+	
+	<bean name="optionFacade" class="com.zy.facade.impl.OptionFacadeImpl"  >
+		<property name="districtService" ref="districtService"/>
+		<property name="schoolService" ref="schoolService"/>
+		<property name="interestService" ref="interestService"/>
+	</bean>
+	
+	<bean name="questionFacade" class="com.zy.facade.impl.QuestionFacadeImpl"  >
+		<property name="questionService" ref="questionService"/>
+		<property name="snsService" ref="snsService"/>
+		<property name="requestService" ref="requestService"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="feedService" ref="feedService"/>
+	</bean>
+
+</beans>

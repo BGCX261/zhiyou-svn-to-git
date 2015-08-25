@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	
+	<bean name="profileService" class="com.zy.domain.profile.service.ProfileServiceImpl">
+		<property name="profileDao" ref="profileDao"/>
+		<property name="cityService" ref="cityService"/>
+	</bean>
+	
+	<bean name="snsService" class="com.zy.domain.sns.service.SNSServiceImpl">
+		<property name="friendDao" ref="friendDao"/>
+		<property name="snsGroupDao" ref="snsGroupDao"/>
+		<property name="zyFollowDao" ref="zyFollowDao"/>
+		<property name="zyIntroduceDao" ref="zyIntroduceDao"/>
+		<property name="inviteByAddressDao" ref="inviteByAddressDao"/>
+		<property name="profileService" ref="profileService"/>
+		<property name="recommendUserDao" ref="recommendUserDao"/>
+	</bean>
+	
+	<bean name="requestService" class="com.zy.domain.message.service.RequestServiceImpl">
+		<property name="requestDao" ref="requestDao"/>
+		<property name="requestTypeDao" ref="requestTypeDao"/>
+		<property name="profileService" ref="profileService"/>
+	</bean>
+	
+	<bean name="notificationService" class="com.zy.domain.message.service.NotificationServiceImpl">
+		<property name="notificationDao" ref="notificationDao"/>
+		<property name="notificationTypeDao" ref="notificationTypeDao"/>
+		<property name="profileService" ref="profileService"/>
+	</bean>
+	
+	<bean name="eventService" class="com.zy.domain.event.service.EventServiceImpl">
+		<property name="eventDao" ref="eventDao"/>
+		<property name="eventInviteDao" ref="eventInviteDao"/>
+		<property name="eventMemberDao" ref="eventMemberDao"/>
+		<property name="eventCategoryDao" ref="eventCategoryDao"/>
+		<property name="recommPlaceDao" ref="recommPlaceDao"/>
+		<property name="eventFollowDao" ref="eventFollowDao"/>
+	</bean>
+	
+	<bean name="feedService" class="com.zy.domain.feed.service.FeedServiceImpl">
+		<property name="newsFeedDao" ref="feedDao"/>
+		<property name="newsFeedTypeDao" ref="feedTypeDao"/>
+		<property name="newsFeedCommentDao" ref="feedCommentDao"/>
+		<property name="blockedFeedsDao" ref="blockedFeedsDao"/>
+		<property name="atFeedDao" ref="atFeedDao"/>
+	</bean>
+	
+	<bean name="messageService" class="com.zy.domain.message.service.MessageServiceImpl">
+		<property name="messageDao" ref="messageDao"/>
+		<property name="profileService" ref="profileService"/>
+	</bean>
+	
+	<bean name="luceneIndexService" class="com.zy.domain.search.service.LuceneIndexServiceImpl">
+		<property name="indexDao" ref="indexDao"/>
+		<property name="indexLogDao" ref="indexLogDao"/>
+	</bean>
+	
+	<bean name="searchService" class="com.zy.domain.search.service.SearchServiceImpl">
+		<property name="indexLogDao" ref="indexLogDao"/>
+	</bean>
+	
+
+	<bean name="cityService" class="com.zy.domain.option.service.CityServiceImpl">
+		<property name="cityDao" ref="cityDao"/>
+	</bean>
+	
+	<bean name="photoService" class="com.zy.domain.photo.service.PhotoServiceImpl">
+		<property name="photoDao" ref="photoDao"/>
+		<property name="albumDao" ref="albumDao"/>
+		<property name="feedDao" ref="feedDao"/>
+	</bean>
+	
+	<bean name="districtService" class="com.zy.domain.option.service.DistrictServiceImpl">
+		<property name="districtDao" ref="districtDao"/>
+	</bean>
+	<bean name="mailqueueService" class="com.zy.domain.message.service.MailqueueServiceImpl">
+		<property name="mailqueueDao" ref="mailqueueDao"/>
+	</bean>
+	<bean name="educationService" class="com.zy.domain.profile.service.EducationServiceImpl">
+		<property name="educationDao" ref="educationDao"/>
+	</bean>
+	
+	<bean name="schoolService" class="com.zy.domain.option.service.SchoolServiceImpl">
+		<property name="schoolDao" ref="schoolDao"/>
+	</bean>
+	
+	<bean name="interestService" class="com.zy.domain.option.service.InterestServiceImpl">
+		<property name="interestDao" ref="interestDao"/>
+	</bean>
+	
+	<bean name="questionService" class="com.zy.domain.question.service.QuestionServiceImpl">
+		<property name="questionDao" ref="questionDao"/>
+		<property name="answerOptionDao" ref="answerOptionDao"/>
+		<property name="answerDao" ref="answerDao"/>
+	</bean>
+</beans>

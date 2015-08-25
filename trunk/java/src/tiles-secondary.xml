@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+<definition name="tiles.profile.info" template="/WEB-INF/jsp/layout/3colbase.jsp" >
+	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
+	<put-attribute name="head" value="/usr/header.jhtml"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/secondary/left.jsp"/>
+	<put-attribute name="headline" value="/WEB-INF/jsp/member/secondary/headline.jsp"/>
+	<put-attribute name="right" value="/WEB-INF/jsp/member/secondary/right.jsp"/>
+	<put-attribute name="center" value="/WEB-INF/jsp/member/secondary/info.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+</definition>
+
+
+<definition name="tiles.profile.friends" template="/WEB-INF/jsp/layout/3colbase.jsp" >
+	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
+	<put-attribute name="head" value="/usr/header.jhtml"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/secondary/left.jsp"/>
+	<put-attribute name="headline" value="/WEB-INF/jsp/member/secondary/headline.jsp"/>
+	<put-attribute name="right" value="/WEB-INF/jsp/member/secondary/right.jsp"/>
+	<put-attribute name="center" value="/WEB-INF/jsp/member/sns/friendslist.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+</definition>
+
+
+
+<definition name="tiles.profile.feeds" template="/WEB-INF/jsp/layout/3colbase.jsp" >
+	<put-attribute name="css" value="/WEB-INF/jsp/common/css.jsp"/>
+	<put-attribute name="head" value="/usr/header.jhtml"/>
+	<put-attribute name="left" value="/WEB-INF/jsp/member/secondary/left.jsp"/>
+	<put-attribute name="headline" value="/WEB-INF/jsp/member/secondary/headline.jsp"/>
+	<put-attribute name="right" value="/WEB-INF/jsp/member/secondary/rightProfile.jsp"/>
+	<put-attribute name="center" value="/WEB-INF/jsp/member/feed/feeds.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
+</definition>
+
+</tiles-definitions>
